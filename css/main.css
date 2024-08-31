@@ -7,7 +7,6 @@
   --color-red: #d86972;
   --color-red--dark: #a94c54;
   --color-orange: #bb8b5e;
-  --color-orange--dark: #8d6744;
   --color-green: #97c278;
   --color-green--medium: #bedfa5;
   --color-green--light: #c3e1ad;
@@ -16,15 +15,6 @@
   --color-blue--light: #8eb9dd;
   --color-blue--dark: #2c6593;
   --color-purple: #c678dd;
-  --color-purple--dark: #9c5bb0;
-  --color-yellow: #ddc678;
-  --color-yellow--dark: #b09c5b;
-  --color-cyan: #78ddd0;
-  --color-cyan--dark: #57b0a5;
-  --color-brown: #3e2c18;
-  --color-brown--dark: #1e150b;
-  --color-gray: #333;
-  --color-gray--dark: #222;
 
   /* Fonts */
   --font-primary: "Noto Sans", sans-serif;
@@ -41,7 +31,12 @@
   --radius: 0.5em;
 }
 
-/* CSS Reset */
+/*
+
+CSS Reset
+Adapted from: https://piccalil.li/blog/a-more-modern-css-reset/
+
+*/
 
 /* Box sizing rules */
 *,
@@ -50,27 +45,17 @@
   box-sizing: border-box;
 }
 
-/* Set core root defaults */
+/* Prevent font size inflation */
 html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
   color: var(--color-primary);
   font-family: var(--font-primary);
   line-height: 1.5;
 }
 
-html:focus-within {
-  scroll-behavior: smooth;
-}
-
-/* Set core body defaults */
-body {
-  min-height: 100vh;
-  text-rendering: optimizeSpeed;
-  margin: 0;
-  display: grid;
-  grid-template-rows: auto auto 1fr auto;
-}
-
-/* Update default margin */
+/* Remove default margin in favour of better control in authored CSS */
 h1,
 h2,
 h3,
@@ -91,8 +76,31 @@ dd {
 ul[role="list"],
 ol[role="list"] {
   list-style: none;
-  padding: 0;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
   margin: 0;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
 }
 
 /* A elements that don't have a class get default styles */
@@ -104,7 +112,7 @@ a:not([class]) {
 
 a:not([class]):hover,
 a:not([class]):focus-visible {
-  color: var(--color-red);
+  color: var(--color-green);
 }
 
 /* Make images easier to work with */
@@ -128,7 +136,18 @@ input,
 button,
 textarea,
 select {
-  font: inherit;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
 }
 
 /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
