@@ -7,6 +7,7 @@
   --color-red: #d86972;
   --color-red--dark: #a94c54;
   --color-orange: #bb8b5e;
+  --color-orange--dark: #8d6744;
   --color-green: #97c278;
   --color-green--medium: #bedfa5;
   --color-green--light: #c3e1ad;
@@ -15,6 +16,15 @@
   --color-blue--light: #8eb9dd;
   --color-blue--dark: #2c6593;
   --color-purple: #c678dd;
+  --color-purple--dark: #9c5bb0;
+  --color-yellow: #ddc678;
+  --color-yellow--dark: #b09c5b;
+  --color-cyan: #78ddd0;
+  --color-cyan--dark: #57b0a5;
+  --color-brown: #3e2c18;
+  --color-brown--dark: #1e150b;
+  --color-gray: #333;
+  --color-gray--dark: #222;
 
   /* Fonts */
   --font-primary: "Noto Sans", sans-serif;
